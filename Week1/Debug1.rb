@@ -6,7 +6,7 @@
 # Date:        08 June 2020
 # Assignment #: Assignment 1.3
 # 
-# Description: This Ruby script has purposes inserted "bugs" in order 
+# Description: This Ruby script has purposely inserted "bugs" in order 
 #              for fellow students to practice debuggin a program. 
 # 
 #--------------------------------------------------------------------------
