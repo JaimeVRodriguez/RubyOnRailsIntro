@@ -3,7 +3,7 @@
 # Script Name: TallTale.rb
 # Version:     1.1
 # Author:      Jaime V. Rodriguez
-# Date:        08 June 2020
+# Date:        10 June 2020
 # Assignment #: Assignment 1.2
 # Update Info: Add ":time" and ":name1,2,3" story element
 #              Add credit paragraph
@@ -75,7 +75,7 @@ if $answer == "n"
 
   #Invite the player to return and play again
   puts "Okay, perhaps another time.\n\n"
-  puts "Author Jaime Rodriguez has created this Tall Tale story about the slaying of a monster.\nWe hope you enjoyed the story \n\nwww.jaime-rodriguez.com"
+  puts "Author Jaime Rodriguez has created this Tall Tale story about the slaying of a monster.\n\nwww.jaime-rodriguez.com"
 
 else
 

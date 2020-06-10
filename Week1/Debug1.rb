@@ -3,7 +3,7 @@
 # Script Name: Debug1.rb
 # Version:     1.3
 # Author:      Jaime V. Rodriguez
-# Date:        08 June 2020
+# Date:        10 June 2020
 # Assignment #: Assignment 1.3
 # 
 # Description: This Ruby script has purposely inserted "bugs" in order 

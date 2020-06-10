@@ -4,7 +4,7 @@
 # Version: 1.1
 # Author: Jaime V. Rodriguez, Bellevue University
 # Assignment #: Assignment 1.1
-# Date: 08 June 2020
+# Date: 10 June 2020
 # Update Info: Update jokes
 #              Add additional jokes
 #              Remove cls methods after jokes
