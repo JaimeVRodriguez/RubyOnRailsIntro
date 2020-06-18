@@ -3,7 +3,7 @@
 # Script Name: Crazy8Ball.rb
 # Version:     1.1
 # Author:      Jaime V. Rodriguez
-# Date:        15 June 2020
+# Date:        18 June 2020
 # Assignment:  Assignment 2.1
 # Update Info: Add Instructions
 #              Add additional predictions
