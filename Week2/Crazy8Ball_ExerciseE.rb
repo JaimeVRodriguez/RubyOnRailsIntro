@@ -1,6 +1,6 @@
 #--------------------------------------------------------------------------
 # 
-# Script Name: Crazy8Ball.rb
+# Script Name: Crazy8Ball_ExerciseE.rb
 # Version:     1.1
 # Author:      Jaime V. Rodriguez
 # Date:        18 June 2020

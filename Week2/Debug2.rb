@@ -1,6 +1,6 @@
 #--------------------------------------------------------------------------
 # 
-# Script Name: Debug1.rb
+# Script Name: Debug2.rb
 # Version:     1.0
 # Author:      Jaime V. Rodriguez
 # Date:        15 June 2020
