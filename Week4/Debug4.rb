@@ -1,7 +1,7 @@
 class Count
 
 
-    def question
+    def questions
         print "Enter a number between 1 and 10: "
         num1 = gets.chomp.to_i
 
@@ -42,8 +42,10 @@ $num1 = 0
 $num2 = 0
 $total = 0
 
-CT = Count.new
+#COUNT should read Count as class is defined
+CT = COUNT.new
 
+#question should read questions as method is defined
 CT.question
 
 CT.result
