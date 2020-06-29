@@ -1,3 +1,16 @@
+#--------------------------------------------------------------------------
+# 
+# Script Name: Debug4.rb
+# Version:     1.0
+# Author:      Jaime V. Rodriguez
+# Date:        29 June 2020
+# Assignment:  Assignment 4.2
+# 
+# Description: This Ruby script has purposely inserted "bugs" in order 
+#              for fellow students to practice debuggin a program. 
+# 
+#--------------------------------------------------------------------------
+
 class Count
 
 
