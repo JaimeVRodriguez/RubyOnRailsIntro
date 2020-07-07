@@ -83,7 +83,7 @@ class Game
   
       Console_Screen.cls    
 
-      # *** Step 5 - Run play game in cheat mode if cheat option selected ***
+      # *** Number 5 - Run play game in cheat mode if cheat option selected ***
       if mode == "c" then
         puts "*** CHEAT MODE ***"
         puts "Winning number is: #{number}\n\n"
@@ -95,11 +95,12 @@ class Game
       reply.chop!         
       reply = reply.to_i 
 
-      # *** Step 1 - Increment game count by 1 ***
+      # *** Number 1 - Increment game count by 1 ***
       $noOfGuesses += 1
     
       # *** Number 2 - Accept inputs up to 1000 ***
       if reply < 1 or reply > 1000 then
+        # *** Number 3 - Error message for invalid inputs ***
         Console_Screen.cls
         puts "*** ERROR ***\n\n"
         puts "You have entered an invalid input. "
@@ -144,7 +145,7 @@ end
 
 # Main Script Logic -------------------------------------------------------
 
-# *** Step 1 - Create variable to track games and guesses ***
+# *** Number 1 - Create variable to track games and guesses ***
 $gameCount = 0
 $noOfGuesses = 0
 $totalNoOfGuesses = 0
@@ -163,42 +164,38 @@ loop do
 
   print "Are you ready to play the Ruby Number Guessing Game? (y/n): "
 
-  answer = STDIN.gets  #Collect the player's response
-  answer.chop!  #Remove any extra characters appended to the string
+  answer = STDIN.gets 
+  answer.chop! 
 
-  #Terminate the loop if valid input was provided
-  # *** Step 5 - Give secret cheat option ***
+  # *** Number 5 - Give secret cheat option ***
   break if answer == "y" || answer == "n"  || answer == "c"#Exit loop
 
 end 
 
-#Analyze the player's input
-if answer == "n"  #See if the player elected not to take the game
+if answer == "n" 
 
-  Console_Screen.cls  #Clear the display area
+  Console_Screen.cls  
 
-  #Invite the player to return and play the game some other time
   puts "Okay, perhaps another time.\n\n"
 
-else  #The player wants to play the game
+else  
 
-    #Execute the Game class's display_instructions method
     SQ.display_instructions
 
   loop do
     
-    #Execute the Game class's play_game method 
+    
     SQ.play_game answer
 
-    Console_Screen.cls  #Clear the display area
+    Console_Screen.cls  
 
-    #Prompt the player for permission start a new round of play
+    
     print "Would you like to play again? (y/n): "
 
-    playAgain = STDIN.gets  #Collect the player's response
-    playAgain.chop!  #Remove any extra characters appended to the string
+    playAgain = STDIN.gets  
+    playAgain.chop! 
 
-    # *** Increment count of games, get total number of guess, and calculate average ***
+    # *** Number 1 - Increment count of games, get total number of guess, and calculate average ***
     $gameCount += 1
     $totalNoOfGuesses += $noOfGuesses
     $avgNoOfGuesses = $totalNoOfGuesses / $gameCount
@@ -214,9 +211,7 @@ else  #The player wants to play the game
   print "Press Enter to end game"
   Console_Screen.pause
 
-  
-  #Call upon the Game class's determine_credits method in order to thank
-  #the player for playing the game and to display game information
+
   SQ.display_credits
   
 end
