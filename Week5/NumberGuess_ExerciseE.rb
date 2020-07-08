@@ -3,7 +3,8 @@
 # Script Name: NumberGuess_ExerciseE.rb
 # Version:     1.1
 # Author:      Jaime V. Rodriguez
-# Date:        July 6, 2020
+# Date:        July 7, 2020
+# Assignment:  Assignment 5.1
 # Update Info: Add and display number of games, number of guesses, and average number of guesses
 #              Increase range to include number up to 1000
 #              Include error message for invalid guesses
