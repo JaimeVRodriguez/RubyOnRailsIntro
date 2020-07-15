@@ -3,7 +3,7 @@
 # Script Name: WordGuess_ExerciseE.rb
 # Version:     1.1
 # Author:      Jerry Lee Ford, Jr.
-# Date:        April 2010
+# Date:        July 15, 2020
 # Assignment:  Assignment 6.1
 # Update Info: Add additonal words
 #              Update Instructions / Hidden instructions menu
@@ -126,7 +126,7 @@ class Game
 
       if list.include?(input.upcase) == true then
         Console_Screen.cls    
-        # *** Step 4 - Provide list of already used guesses ***
+        # *** Number 4 - Provide list of already used guesses ***
         print "Error: You have already guessed " + list.inspect.gsub(/"/, "") + ". Press " +
         "Enter to continue."
         Console_Screen.pause      
