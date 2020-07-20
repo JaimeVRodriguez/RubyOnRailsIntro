@@ -3,7 +3,7 @@
 # Script Name: RPS_ExerciseE.rb
 # Version:     1.1
 # Author:      Jaime Rodriguez
-# Date:        March 2010
+# Date:        20 July 2020
 # Assignment:  Assignment 7.1
 # Update Info: Allow single letter shorthand input
 #              Count number of games played
