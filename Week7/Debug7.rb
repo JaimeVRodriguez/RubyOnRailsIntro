@@ -1,6 +1,6 @@
 #--------------------------------------------------------------------------
 # 
-# Script Name: Debug6.rb
+# Script Name: Debug7.rb
 # Version:     1.0
 # Author:      Jaime V. Rodriguez
 # Date:        20 July 2020
@@ -137,4 +137,3 @@ if answer =~ /n/i
     Lucky.credits
     
 end
-
