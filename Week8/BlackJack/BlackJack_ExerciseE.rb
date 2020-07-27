@@ -34,44 +34,68 @@ end
 class Game
  
   #This method displays the game's opening message
-  def display_greeting
-  
-    Console_Screen.cls  #Clear the display area
-  
-    #Display a welcome message
-    print "\t\t\tWelcome to the Ruby Blackjack Game!" +
-    "\n\n\n\n\n\n\n\n\n\n\n\n\n\nPress Enter to " +
-               "continue. "
-  
-    Console_Screen.pause       #Pause the game
 
-  end
  
-  #Define a method to be used to display game instructions
-  def display_instructions
-    
-    Console_Screen.cls       #Clear the display area
-    puts "INSTRUCTIONS:\n\n"  #Display a heading
 
-    #Display the game's instructions
-    puts "This game is based on the Blackjack card game, where the"
-    puts "objective is to beat the dealer by acquiring cards that total"
-    puts "higher than the dealer's cards without going over 21. In this"
-    puts "version, the player and dealer are each dealt an initial card. The"
-    puts "player is then prompted to draw additional cards. The player"
-    puts "may draw as many additional cards as desired, as long as the"
-    puts "player's hand adds up to less than 21. If the player's hand goes"
-    puts "over 21, the player busts and the dealer automatically"
-    puts "wins. Once the player decides to hold, it is the dealer's"
-    puts "turn. The dealer continues to add new cards to his hand"
-    puts "until it adds up to 17 or more or the dealer busts. Once the"
-    puts "dealer's hand is complete, the game analyzes the player's hand"
-    puts "and the dealer's hand to determine the results of the game."
-    puts "\n\n\n\n\n\n\n"
-    print "Press Enter to continue. "
+  # *** Number 1 - Create method to read instructions file ***
+  # *** Number 1 - Delete previous intrusctions method ***
+  # *** Number 2 - Change name to get_file and have an argument ***
+  # *** Number 3 - Call global variable based on new argument ***
+  def get_file(file)
+    Console_Screen.cls
 
-    Console_Screen.pause       #Pause the game
-    
+    if file == 'Help'
+      puts $help_file
+    elsif file == 'Welcome'
+      puts $welcome_file
+    elsif file == 'Credits'
+      puts $credits_file
+    end
+
+    Console_Screen.pause
+  end
+
+  # *** Number 3 - Create method to retreive files and assign to global variable ***
+  # Number 5 - Include ability to use on different operating systems ***
+  def retrieve_files
+    if RUBY_PLATFORM =~ /win32|win64/i then
+      $help_file = File.read('C:\files\BJHelp.txt')
+      $welcome_file = File.read('C:\files\BJWelcome.txt')
+      $credits_file = File.read('C:\files\BJCredits.txt')
+    else
+      $help_file = File.read('files/BJHelp.txt')
+      $welcome_file = File.read('files/BJWelcome.txt')
+      $credits_file = File.read('files/BJCredits.txt')
+    end
+  end
+
+  # *** Number 4 - Method to append a file to log the results of matches ***
+  # Number 5 - Include ability to use on different operating systems ***
+  def write_log_file(message)
+    if RUBY_PLATFORM =~ /win32|win64/i then
+      outFile = File.new('C:\temp\BJLog.txt', "a")
+      outFile.puts message
+      outFile.close
+    else
+      outFile = File.new('tmp/BJLog.txt', "a")
+      outFile.puts message
+      outFile.close
+    end
+  end
+
+  # Number 4 - Method to delete existing file if one already exists ***
+  # Number 5 - Include ability to use on different operating systems ***
+  def remove_log_file
+    if RUBY_PLATFORM =~ /win32|win64/i then
+      if File.exist?('C:\temp\BJLog.txt') then
+        File.delete('C:\temp\BJLog.txt')
+      end
+
+    else
+      if File.exist?("tmp/BJLog.txt")
+        File.delete("tmp/BJLog.txt")
+      end
+    end
   end
  
   #Define a method to control game play
@@ -177,6 +201,7 @@ class Game
 
   #Define a method responsible for analyzing the player and dealer's
   #hands and determining who won
+  # *** Number 4 - Adjust method to write results to log ***
   def determine_winner(playerHand, dealerHand)
     
     Console_Screen.cls  #Clear the display area
@@ -184,48 +209,45 @@ class Game
     #Show the value of the player and dealer's hands
     puts "Player's hand: " + playerHand.to_s + "\n\n"
     puts "Dealer's hand: " + dealerHand.to_s + "\n\n\n\n\n\n"
+    write_log_file("Player's hand: " + playerHand.to_s)
+    write_log_file("Dealer's hand: " + dealerHand.to_s)
    
     if playerHand > 21 then  #See if the player has gone bust
       puts "You have gone bust!\n\n"
+      write_log_file("The Dealer has won!")
       print "Press Enter to continue."    
     else  #See if the player and dealer have tied
       if playerHand == dealerHand then
           puts "Tie!\n\n"
+          write_log_file("Tie!")
           print "Press Enter to continue."
         end
       #Dee if the dealer has gone bust
       if dealerHand > 21 then
           puts "The Dealer has gone bust!\n\n"
+          write_log_file("The Player has won!")
           print "Press Enter to continue."
       else
         #See if the player's hand beats the dealer's hand
         if playerHand > dealerHand then
           puts "You have won!\n\n"
+          write_log_file("The Player has won!")
           print "Press Enter to continue."
         end
         #See if the dealer's hand beats the player's hand
         if playerHand < dealerHand then
           puts "The Dealer has won!\n\n"
+          write_log_file("The Dealer has won!")
           print "Press Enter to continue."
         end
       end  
     end
+
+    # Number 4 - Log results to file with 50 dashes ***
+    write_log_file("-" * 50)
       
     Console_Screen.pause       #Pause the game
     
-  end
-
-  #This method displays information about the Ruby Blackjack game
-  def display_credits
-  
-    Console_Screen.cls  #Clear the display area
-  
-    #Thank the player and display game information
-    puts "\t\t Thank you for playing the Ruby Blackjack game.\n\n\n\n"
-    puts "\n\t\t\t Developed by Jerry Lee Ford, Jr.\n\n"
-    puts "\t\t\t\t  Copyright 2010\n\n"
-    puts "\t\t\tURL: http://www.tech-publishing.com\n\n\n\n\n\n\n\n\n\n"
-
   end
 
 end
@@ -236,8 +258,13 @@ end
 Console_Screen = Screen.new  #Instantiate a new Screen object
 BJ = Game.new  #Instantiate a new Game object
 
+# *** Number 3 - Retreive files with created method ***
+BJ.retrieve_files
+
 #Execute the Game class's display_greeting method
-BJ.display_greeting
+# *** Number 2 - Utilize new get_file method ***
+# *** Number 3 - Call file using new argument ***
+BJ.get_file('Welcome')
 
 answer = ""  #Initialize variable and assign it an empty string
 
@@ -268,7 +295,9 @@ if answer =~ /n/i  #See if the player wants to quit
 else  #The player wants to play the game
 
   #Execute the game class's display_instructions method
-  BJ.display_instructions
+  # *** Number 2 - Utilize new get_file method ***
+  # *** Number 3 - Call file using new argument ***
+  BJ.get_file("Help")
 
   playAgain = ""  #Initialize variable and assign it an empty string
 
@@ -297,6 +326,8 @@ else  #The player wants to play the game
   end
   
   #Call upon the Game class's display_credits method
-  BJ.display_credits
+  # *** Number 2 - Utilize new get_file method ***
+  # *** Number 3 - Call file using new argument ***
+  BJ.get_file("Credits")
   
 end

@@ -1,0 +1,19 @@
+                    
+                    
+                    
+            ** EMPTY TREE **
+                    
+                    *
+                   * *
+                  *   *
+                 *     *
+                *       *
+               ***********
+                   ***
+                   ***
+
+            
+            THANKS FOR PLAYING
+        
+
+          PRESS ENTER TO FINISH
